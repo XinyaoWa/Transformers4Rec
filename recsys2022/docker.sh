@@ -1,0 +1,1 @@
+docker run -it --name mtstill --network host --gpus all -v /mnt/DP_disk1/xinyao/mtstill:/home/vmagent/app/ -w /home/vmagent/app/ chatbot_finetune:latest /bin/bash

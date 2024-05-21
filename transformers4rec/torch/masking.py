@@ -329,6 +329,8 @@ class CausalLanguageModeling(MaskSequence):
             axis=1,
         )
         # Replacing the inputs corresponding to padded items with a trainable embedding
+        mask_schema_idx = mask_schema.sum(dim=1) - 1
+        mask_schema[torch.arange(mask_schema.size(0)), mask_schema_idx] = False
         pos_emb_inp = torch.where(
             mask_schema.unsqueeze(-1).bool(),
             pos_emb_inp,

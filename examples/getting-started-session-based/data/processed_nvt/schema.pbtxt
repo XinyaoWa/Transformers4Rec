@@ -1,0 +1,96 @@
+feature {
+  name: "session_id"
+  type: INT
+  annotation {
+    extra_metadata {
+      type_url: "type.googleapis.com/google.protobuf.Struct"
+      value: "\n\034\n\017dtype_item_size\022\t\021\000\000\000\000\000\000P@\n\036\n\005_dims\022\0252\023\n\0212\017\n\t\021\000\000\000\000\000\000\000\000\n\002\010\000\n\r\n\007is_list\022\002 \000\n\017\n\tis_ragged\022\002 \000"
+    }
+  }
+}
+feature {
+  name: "day-first"
+  type: INT
+  annotation {
+    extra_metadata {
+      type_url: "type.googleapis.com/google.protobuf.Struct"
+      value: "\n\017\n\tis_ragged\022\002 \000\n\r\n\007is_list\022\002 \000\n\036\n\005_dims\022\0252\023\n\0212\017\n\t\021\000\000\000\000\000\000\000\000\n\002\010\000\n\034\n\017dtype_item_size\022\t\021\000\000\000\000\000\000P@"
+    }
+  }
+}
+feature {
+  name: "item_id-list"
+  value_count {
+    min: 2
+    max: 14
+  }
+  type: INT
+  int_domain {
+    name: "item_id"
+    max: 506
+    is_categorical: true
+  }
+  annotation {
+    tag: "categorical"
+    tag: "id"
+    tag: "list"
+    tag: "item"
+    extra_metadata {
+      type_url: "type.googleapis.com/google.protobuf.Struct"
+      value: "\n\017\n\tis_ragged\022\002 \001\n\021\n\013num_buckets\022\002\010\000\n\r\n\007is_list\022\002 \001\nG\n\017embedding_sizes\0224*2\n\026\n\tdimension\022\t\021\000\000\000\000\000\000J@\n\030\n\013cardinality\022\t\021\000\000\000\000\000\260\177@\n8\n\005_dims\022/2-\n\0212\017\n\t\021\000\000\000\000\000\000\000\000\n\002\010\000\n\0302\026\n\t\021\000\000\000\000\000\000\000@\n\t\021\000\000\000\000\000\000,@\n2\n\010cat_path\022&\032$.//categories/unique.item_id.parquet\n\033\n\016freq_threshold\022\t\021\000\000\000\000\000\000\000\000\n\034\n\017dtype_item_size\022\t\021\000\000\000\000\000\000P@\n\025\n\010max_size\022\t\021\000\000\000\000\000\000\000\000"
+    }
+  }
+}
+feature {
+  name: "category-list"
+  value_count {
+    min: 2
+    max: 14
+  }
+  type: INT
+  int_domain {
+    name: "category"
+    max: 185
+    is_categorical: true
+  }
+  annotation {
+    tag: "categorical"
+    tag: "list"
+    extra_metadata {
+      type_url: "type.googleapis.com/google.protobuf.Struct"
+      value: "\n\021\n\013num_buckets\022\002\010\000\n3\n\010cat_path\022\'\032%.//categories/unique.category.parquet\nG\n\017embedding_sizes\0224*2\n\030\n\013cardinality\022\t\021\000\000\000\000\000@g@\n\026\n\tdimension\022\t\021\000\000\000\000\000\000>@\n\017\n\tis_ragged\022\002 \001\n\033\n\016freq_threshold\022\t\021\000\000\000\000\000\000\000\000\n8\n\005_dims\022/2-\n\0212\017\n\t\021\000\000\000\000\000\000\000\000\n\002\010\000\n\0302\026\n\t\021\000\000\000\000\000\000\000@\n\t\021\000\000\000\000\000\000,@\n\025\n\010max_size\022\t\021\000\000\000\000\000\000\000\000\n\034\n\017dtype_item_size\022\t\021\000\000\000\000\000\000P@\n\r\n\007is_list\022\002 \001"
+    }
+  }
+}
+feature {
+  name: "age_days-list"
+  value_count {
+    min: 2
+    max: 14
+  }
+  type: FLOAT
+  annotation {
+    tag: "continuous"
+    tag: "list"
+    extra_metadata {
+      type_url: "type.googleapis.com/google.protobuf.Struct"
+      value: "\n\017\n\tis_ragged\022\002 \001\n\r\n\007is_list\022\002 \001\n\034\n\017dtype_item_size\022\t\021\000\000\000\000\000\000@@\n8\n\005_dims\022/2-\n\0212\017\n\t\021\000\000\000\000\000\000\000\000\n\002\010\000\n\0302\026\n\t\021\000\000\000\000\000\000\000@\n\t\021\000\000\000\000\000\000,@"
+    }
+  }
+}
+feature {
+  name: "weekday_sin-list"
+  value_count {
+    min: 2
+    max: 14
+  }
+  type: FLOAT
+  annotation {
+    tag: "continuous"
+    tag: "list"
+    extra_metadata {
+      type_url: "type.googleapis.com/google.protobuf.Struct"
+      value: "\n8\n\005_dims\022/2-\n\0212\017\n\t\021\000\000\000\000\000\000\000\000\n\002\010\000\n\0302\026\n\t\021\000\000\000\000\000\000\000@\n\t\021\000\000\000\000\000\000,@\n\r\n\007is_list\022\002 \001\n\034\n\017dtype_item_size\022\t\021\000\000\000\000\000\000@@\n\017\n\tis_ragged\022\002 \001"
+    }
+  }
+}

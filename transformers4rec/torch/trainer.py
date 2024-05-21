@@ -691,6 +691,16 @@ class Trainer(BaseTrainer):
         if testing:
             metrics[f"{metric_key_prefix}_/loss"] = all_losses.mean().item()
 
+        predictions_final = torch.Tensor(all_preds[0]).int()
+        labels_final = torch.Tensor(all_labels).int().unsqueeze(-1)
+        num_samples_final = labels_final.shape[0]
+            
+        hit_ranks = torch.where(predictions_final == labels_final)[1] + 1
+        hit = hit_ranks.numel()
+        mrr = hit_ranks.float().reciprocal().sum().item()
+        metrics["mrr"] = mrr * 1.0 /num_samples_final
+        metrics["hit"] = hit * 1.0 /num_samples_final
+
         return EvalLoopOutput(
             predictions=all_preds,
             label_ids=all_labels,

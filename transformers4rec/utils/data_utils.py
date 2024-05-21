@@ -201,7 +201,7 @@ def save_time_based_splits(
     """
 
     if cpu:
-        _save_time_based_splits_cpu(
+        return _save_time_based_splits_cpu(
             data,
             output_dir=output_dir,
             partition_col=partition_col,
@@ -210,16 +210,16 @@ def save_time_based_splits(
             val_size=val_size,
             overwrite=overwrite,
         )
-
-    return _save_time_based_splits_gpu(
-        data,
-        output_dir=output_dir,
-        partition_col=partition_col,
-        timestamp_col=timestamp_col,
-        test_size=test_size,
-        val_size=val_size,
-        overwrite=overwrite,
-    )
+    else:
+        return _save_time_based_splits_gpu(
+            data,
+            output_dir=output_dir,
+            partition_col=partition_col,
+            timestamp_col=timestamp_col,
+            test_size=test_size,
+            val_size=val_size,
+            overwrite=overwrite,
+        )
 
 
 def _save_time_based_splits_gpu(
@@ -345,7 +345,7 @@ def _save_time_based_splits_cpu(
             "cudf, cupy, dask_cudf & merlin-core."
         )
 
-    if isinstance(data, dask.DataFrame):
+    if isinstance(data, dask.dataframe.DataFrame):
         data = Dataset(data)
     if not isinstance(partition_col, list):
         partition_col = [partition_col]
